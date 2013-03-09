@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: imon
+  Date: 2/18/13
+  Time: 9:06 PM
+-->
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>FundRaiser-Request Issue</title>
+    <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+</h:head>
+
+<body class="main-container">
+
+<p:layout fullPage="true">
+
+    <p:layoutUnit position="north" size="90" resizable="false">
+        <div>
+            <div class="container-left">
+                <h1>FundRaiser</h1>
+            </div>
+
+            <div class="container-right">
+                <h:form id="logout">
+                    <p:outputLabel value="Welcome, #{homeController.user.userName}"
+                                   rendered="#{!empty homeController.user.userName}"/>
+                    <p:spacer width="10px"/>
+                    <p:commandButton value="Log Out" action="#{homeController.logOut}"/>
+                </h:form>
+            </div>
+
+        </div>
+
+    </p:layoutUnit>
+
+
+    <p:layoutUnit position="center">
+
+        <h:form id="menu">
+            <p:tabMenu activeIndex="1">
+
+                <p:menuitem value="Home" action="#{homeController.home}"/>
+                <p:menuitem value="Request an Issue" action="#{homeController.requestIssue}"/>
+                <p:menuitem value="My Contribution" action="#{homeController.myContribution}"/>
+                <p:menuitem value="My Issues" action="#{homeController.myIssues}"/>
+                <p:menuitem value="My Profile" action="#{homeController.myProfile}"/>
+
+            </p:tabMenu>
+        </h:form>
+
+        <div>
+            <div class="request-issue">
+
+                <h3>Request Issue</h3>
+                <h:form id="requestForm">
+                    <p:messages id="msgs" autoUpdate="true" closable="true"/>
+                    <h:panelGrid columns="2">
+                        <p:outputLabel for="title" value="Title"/>
+                        <p:inputText id="title" required="true" requiredMessage="Title is required" size="26"
+                                     value="#{requestIssueController.issue.title}"/>
+
+                        <p:outputLabel for="helpFor" value="Help For"/>
+                        <p:inputText id="helpFor" required="true" requiredMessage="Help for is required" size="26"
+                                     value="#{requestIssueController.issue.helpFor}"/>
+
+                        <p:outputLabel for="description" value="Description"/>
+                        <p:editor id="description" required="true" requiredMessage="Description is required" value="#{requestIssueController.issue.description}"/>
+
+                        <p:outputLabel for="requiredAmount" value="Required Amount"/>
+                        <p:inputText id="requiredAmount" required="true" size="26" requiredMessage="Required Amount is required"
+                                     value="#{requestIssueController.issue.requiredAmount}"/>
+                        <p:spacer/>
+                        <p:commandButton action="#{requestIssueController.requestIssue}" value="Submit"/>
+                    </h:panelGrid>
+                </h:form>
+
+            </div>
+        </div>
+    </p:layoutUnit>
+
+
+    <p:layoutUnit position="south" size="90" resizable="false">
+        <div>
+            <div class="container-left-footer">
+                <p:outputLabel value="FundRaiser,2013"/>
+            </div>
+            <div class="container-right-footer">
+                <p:outputLabel value="An OpenSource Project"/>
+            </div>
+        </div>
+    </p:layoutUnit>
+
+</p:layout>
+
+</body>
+
+</html>

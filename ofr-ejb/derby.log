@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Wed Mar 06 15:22:37 BDT 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-013d-3f02-702a-000008c9f260 
+on database directory /home/imon/IdeaProjects/ofr/ofr-ejb/target/databases/derby  with class loader sun.misc.Launcher$AppClassLoader@3182f0db 
+Loaded from file:/home/imon/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2/glassfish-embedded-all-3.1.2.jar
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_37-b06
+user.dir=/home/imon/IdeaProjects/ofr/ofr-ejb
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

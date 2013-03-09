@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: imon
+  Date: 2/17/13
+  Time: 4:56 PM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>FundRaiser</title>
+    <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+</h:head>
+
+<body class="main-container">
+
+<p:layout fullPage="true">
+
+    <p:layoutUnit position="north" size="120" resizable="false">
+
+        <div>
+            <div class="container-left">
+                <h1>FundRaiser</h1>
+            </div>
+        </div>
+
+
+    </p:layoutUnit>
+
+
+    <p:layoutUnit position="center">
+
+        <p:outputLabel value="#{donateController.issue.issueId}"/>
+
+        <form name="paypalForm" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_donations"/>
+            <input type="hidden" name="business" value="imon.0_1361851049_biz@gmail.com"/>
+            <input type="hidden" name="password" value="1361851070"/>
+            <input type="hidden" name="custom" value="1123"/>
+            <input type="hidden" name="item_name" value="#{donateController.issue.issueId}"/>
+            <input type="hidden" name="rm" value="1"/>
+            <input type="hidden" name="return" value="http://localhost:8080/ofr/index"/>
+            <input type="hidden" name="cancel_return"
+                   value="http://localhost:8080/ofr/index"/>
+            <input type="hidden" name="cert_id" value="AArQuWGL3VtwTOmNdT4hOkE8qNH2A-mFCwxXwECXMefX29nItEsIyyw3"/>
+            <input type="submit"/>
+        </form>
+    </p:layoutUnit>
+
+
+    <p:layoutUnit position="south" size="60" resizable="false">
+        <div>
+            <div class="container-left-footer">
+                <p:outputLabel value="FundRaiser,2013"/>
+            </div>
+            <div class="container-right-footer">
+                <p:outputLabel value="An OpenSource Project"/>
+            </div>
+        </div>
+    </p:layoutUnit>
+
+</p:layout>
+
+</body>
+
+</html>

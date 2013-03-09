@@ -1,0 +1,97 @@
+.container-left {
+    float: left;
+    padding-left: 70px;
+}
+
+.container-right {
+    float: right;
+    padding-top: 30px;
+    padding-right: 70px;
+}
+
+.div-right {
+    padding-top: 10px;
+    padding-right: 75px;
+    float: right;
+}
+
+.forgot-password-div {
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 200px;
+    padding-right: 200px;
+
+}
+
+.container-left-footer {
+    float: left;
+    padding-top: 20px;
+    padding-left: 70px;
+}
+
+.container-right-footer {
+    float: right;
+    padding-top: 20px;
+    padding-right: 70px;
+}
+
+.label-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+
+    font-size: 90% !important;
+}
+
+.signup-container {
+    padding-top: 60px;
+    padding-left: 50px;
+}
+
+.main-container {
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+
+.center-container {
+    padding: 5px;
+}
+
+.homeContainerLeft {
+    padding-top: 5px;
+    float: left;
+    width: 700px;
+
+}
+
+.homeContainerRight {
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    float: right;
+    width: 340px;
+    height: 250px;
+}
+
+.center-div {
+    padding-top: 20px;
+    width: 550px;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.request-issue {
+    padding-top: 70px;
+    padding-left: 200px;
+    padding-right: 50px;
+}
+
+.myprofile{
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 18px;
+}

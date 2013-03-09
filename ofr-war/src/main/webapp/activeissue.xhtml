@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: imon
+  Date: 2/18/13
+  Time: 9:06 PM
+-->
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+    <title>FundRaiser-Home</title>
+    <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+</h:head>
+
+<body class="main-container">
+
+<p:layout fullPage="true">
+
+    <p:layoutUnit position="north" size="90" resizable="false">
+        <div>
+            <div class="container-left">
+                <h1>FundRaiser</h1>
+            </div>
+
+            <div class="container-right">
+                <h:form id="logout">
+                    <p:outputLabel value="Welcome, #{adminHomeController.user.userName}"
+                                   rendered="#{!empty adminHomeController.user.userName}"/>
+                    <p:spacer width="10px"/>
+                    <p:commandButton value="Log Out" action="#{adminHomeController.logOut}"/>
+                </h:form>
+            </div>
+
+        </div>
+
+    </p:layoutUnit>
+
+
+    <p:layoutUnit position="center" resizable="false">
+
+        <h:form id="menu">
+            <p:tabMenu activeIndex="1">
+
+                <p:menuitem value="Pending Issues" action="#{adminHomeController.showPendingIssue}"/>
+                <p:menuitem value="Active Issues" action="#{adminHomeController.showActiveIssue}"/>
+                <p:menuitem value="Closed Issues" action="#{adminHomeController.showClosedIssue}"/>
+            </p:tabMenu>
+        </h:form>
+
+            <c:choose>
+                <c:when test="#{not empty activeIssueController.activeIssues}">
+            <p:accordionPanel dynamic="false" cache="true" value="#{activeIssueController.activeIssues}"
+                              var="activeIssue">
+                <p:tab title="#{activeIssue.title}">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Help For : "/>
+                        <h:outputText value="#{activeIssue.helpFor}"/>
+                        <h:outputLabel value="Description : "/>
+                        <h:outputText escape="false" value="#{activeIssue.description}"/>
+                        <h:outputLabel value="Creation Date : "/>
+                        <h:outputText value="#{activeIssue.createdDate}"/>
+                        <p:spacer/>
+                        <p:commandButton action="#{activeIssueController.closeIssue(activeIssue.issueId)}"
+                                         value="Close"/>
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+                </c:when>
+                <c:otherwise>
+                    <p:panel>
+                        <f:facet name="header">
+                            Active Issues
+                        </f:facet>
+                        <p:outputLabel>
+                            No Active Issue Found
+                        </p:outputLabel>
+                    </p:panel>
+                </c:otherwise>
+            </c:choose>
+
+
+    </p:layoutUnit>
+
+
+    <p:layoutUnit position="south" size="60" resizable="false">
+        <div>
+            <div class="container-left-footer">
+                <p:outputLabel value="FundRaiser,2013"/>
+            </div>
+            <div class="container-right-footer">
+                <p:outputLabel value="An OpenSource Project"/>
+            </div>
+        </div>
+    </p:layoutUnit>
+
+</p:layout>
+
+</body>
+
+</html>

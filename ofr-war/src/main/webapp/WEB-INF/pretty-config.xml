@@ -1,0 +1,62 @@
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces/3.3.3"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.org/prettyfaces/3.3.3
+               http://ocpsoft.org/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.3.xsd">
+
+    <url-mapping id="index">
+        <pattern value="/index" />
+        <view-id value="/index.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="home">
+        <pattern value="/home" />
+        <view-id value="/home.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="requestissue">
+        <pattern value="/issue/request" />
+        <view-id value="/requestissue.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="mycontribution">
+        <pattern value="/mycontribution" />
+        <view-id value="/mycontribution.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="myissues">
+        <pattern value="/myissues" />
+        <view-id value="/myissues.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="myprofile">
+        <pattern value="/myprofile" />
+        <view-id value="/myprofile.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="adminhome">
+        <pattern value="/admin/home" />
+        <view-id value="/adminhome.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="activeissue">
+        <pattern value="/admin/issue/active" />
+        <view-id value="/activeissue.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="closedissue">
+        <pattern value="/admin/issue/closed" />
+        <view-id value="/closedissues.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="forgotpassword">
+        <pattern value="/forgotpassword" />
+        <view-id value="/forgotpassword.xhtml" />
+    </url-mapping>
+
+    <url-mapping>
+        <pattern value="/donate"/>
+        <view-id value="/donate.xhtml"/>
+    </url-mapping>
+
+
+</pretty-config>

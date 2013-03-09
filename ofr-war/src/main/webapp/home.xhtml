@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: imon
+  Date: 2/18/13
+  Time: 9:06 PM
+-->
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+    <title>FundRaiser-Home</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+
+<body class="main-container">
+
+<p:layout fullPage="true">
+
+    <p:layoutUnit position="north" size="90" resizable="false">
+        <div>
+            <div class="container-left">
+                <h1>FundRaiser</h1>
+            </div>
+
+            <div class="container-right">
+                <h:form id="logout">
+                    <p:outputLabel value="Welcome, #{homeController.user.userName}"
+                                   rendered="#{!empty homeController.user.userName}"/>
+                    <p:spacer width="10px"/>
+                    <p:commandButton value="Log Out" action="#{homeController.logOut}"/>
+                </h:form>
+            </div>
+
+        </div>
+
+    </p:layoutUnit>
+
+
+    <p:layoutUnit position="center">
+
+        <h:form id="menu">
+            <p:tabMenu>
+
+                <p:menuitem value="Home" action="#{homeController.home}"/>
+                <p:menuitem value="Request an Issue" action="#{homeController.requestIssue}"/>
+                <p:menuitem value="My Contribution" action="#{homeController.myContribution}"/>
+                <p:menuitem value="My Issues" action="#{homeController.myIssues}"/>
+                <p:menuitem value="My Profile" action="#{homeController.myProfile}"/>
+
+            </p:tabMenu>
+        </h:form>
+
+        <h:form id="form">
+            <div>
+                <div class="homeContainerLeft">
+                    <c:choose>
+                        <c:when test="${not empty homeController.recentIssues}">
+                            <p:panel id="panel">
+                                <p:dataList id="recentIssueDataList" value="#{homeController.recentIssues}"
+                                            var="issueList"
+                                            paginator="true" rows="4" effectSpeed="fast"
+                                            paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"
+                                            rowsPerPageTemplate="4,10,15" type="none">
+
+                                    <f:facet name="header">
+                                        Recent Issues
+                                    </f:facet>
+
+                                    <div style="padding-left: 10px">
+
+                                        <h:commandLink target="_blank" style="color: #6495ed; font-size: 20px"
+                                                       value="#{issueList.title}"
+                                                       action="#{homeController.donate}">
+                                            <f:param name="issue" value="#{issueList.issueId}"/>
+                                            <f:param name="user" value="#{homeController.user.userId}"/>
+                                        </h:commandLink>
+
+
+                                        <h:panelGrid columns="2">
+                                            <h:outputLabel value="Help For : "/>
+                                            <h:outputText value="#{issueList.helpFor}"/>
+                                            <h:outputLabel value="Description : "/>
+                                            <h:outputText escape="false" value="#{issueList.description}"/>
+                                            <h:outputLabel value="Creation Date : "/>
+                                            <h:outputText value="#{issueList.createdDate}"/>
+                                            <h:outputLabel value="Collected Amount : "/>
+                                            <h:outputText value="#{issueList.collectedAmount}"/>
+                                            <h:outputLabel value="Required Amount :"/>
+                                            <h:outputText value="#{issueList.requiredAmount}"/>
+                                            <p:spacer/>
+
+                                        </h:panelGrid>
+
+                                    </div>
+                                    <p:separator/>
+                                </p:dataList>
+                            </p:panel>
+                        </c:when>
+                        <c:otherwise>
+                            <p:panel>
+                                <f:facet name="header">
+                                    Recent Issues
+                                </f:facet>
+                                <p:outputLabel>
+                                    No Issue Found
+                                </p:outputLabel>
+                            </p:panel>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+
+                <div class="homeContainerRight">
+                    <p:panel>
+                        <f:facet name="header">
+                            Search
+                        </f:facet>
+
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="Search :"/>
+                            <p:inputText size="36" id="searchText" value="#{homeController.searchText}"/>
+                            <p:watermark value="Search Title" for="searchText"/>
+                            <p:commandButton value="Search" update="panel"
+                                             actionListener="#{homeController.searchIssue}"/>
+                        </h:panelGrid>
+
+                    </p:panel>
+                </div>
+            </div>
+        </h:form>
+    </p:layoutUnit>
+
+
+    <p:layoutUnit position="south" size="90" resizable="false">
+        <div>
+            <div class="container-left-footer">
+                <p:outputLabel value="FundRaiser,2013"/>
+            </div>
+            <div class="container-right-footer">
+                <p:outputLabel value="An OpenSource Project"/>
+            </div>
+        </div>
+    </p:layoutUnit>
+
+</p:layout>
+
+</body>
+
+</html>

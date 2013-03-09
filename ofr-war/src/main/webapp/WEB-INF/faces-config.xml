@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+
+
+    <navigation-rule>
+
+        <from-view-id>/index.xhtml</from-view-id>
+
+
+        <navigation-case>
+            <from-outcome>sign up successful</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>log in successful</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>admin log in successful</from-outcome>
+            <to-view-id>/adminhome.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>donate</from-outcome>
+            <to-view-id>/donate.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+
+
+    <navigation-rule>
+
+        <from-view-id>/home.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>search</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>log out</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>request issue</from-outcome>
+            <to-view-id>/requestissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my contribution</from-outcome>
+            <to-view-id>/mycontribution.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my issues</from-outcome>
+            <to-view-id>/myissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my profile</from-outcome>
+            <to-view-id>/myprofile.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>donate</from-outcome>
+            <to-view-id>/donate.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+
+
+    <navigation-rule>
+
+        <from-view-id>/requestissue.xhtml</from-view-id>
+
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>request issue</from-outcome>
+            <to-view-id>/requestissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>request successful</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>log out</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my contribution</from-outcome>
+            <to-view-id>/mycontribution.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my issues</from-outcome>
+            <to-view-id>/myissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my profile</from-outcome>
+            <to-view-id>/myprofile.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+
+
+    <navigation-rule>
+
+        <from-view-id>/myissues.xhtml</from-view-id>
+
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>request issue</from-outcome>
+            <to-view-id>/requestissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>log out</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my contribution</from-outcome>
+            <to-view-id>/mycontribution.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my issues</from-outcome>
+            <to-view-id>/myissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my profile</from-outcome>
+            <to-view-id>/myprofile.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+
+
+    <navigation-rule>
+
+        <from-view-id>/mycontribution.xhtml</from-view-id>
+
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>request issue</from-outcome>
+            <to-view-id>/requestissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>log out</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my contribution</from-outcome>
+            <to-view-id>/mycontribution.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my issues</from-outcome>
+            <to-view-id>/myissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my profile</from-outcome>
+            <to-view-id>/myprofile.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+    <navigation-rule>
+
+        <from-view-id>/myprofile.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>request issue</from-outcome>
+            <to-view-id>/requestissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>log out</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my contribution</from-outcome>
+            <to-view-id>/mycontribution.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my issues</from-outcome>
+            <to-view-id>/myissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>my profile</from-outcome>
+            <to-view-id>/myprofile.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+
+
+    <navigation-rule>
+
+        <from-view-id>/adminhome.xhtml</from-view-id>
+
+
+        <navigation-case>
+            <from-outcome>issue activated</from-outcome>
+            <to-view-id>/adminhome.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>issue closed</from-outcome>
+            <to-view-id>/adminhome.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>pending issue</from-outcome>
+            <to-view-id>/adminhome.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>active issue</from-outcome>
+            <to-view-id>/activeissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>log out</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>closed issue</from-outcome>
+            <to-view-id>/closedissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+
+
+    <navigation-rule>
+
+        <from-view-id>/activeissue.xhtml</from-view-id>
+
+
+        <navigation-case>
+            <from-outcome>issue closed</from-outcome>
+            <to-view-id>/activeissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>log out</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>pending issue</from-outcome>
+            <to-view-id>/adminhome.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>active issue</from-outcome>
+            <to-view-id>/activeissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>closed issue</from-outcome>
+            <to-view-id>/closedissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+
+
+    <navigation-rule>
+
+        <from-view-id>/closedissues.xhtml</from-view-id>
+
+
+        <navigation-case>
+            <from-outcome>log out</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>pending issue</from-outcome>
+            <to-view-id>/adminhome.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>active issue</from-outcome>
+            <to-view-id>/activeissue.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>closed issue</from-outcome>
+            <to-view-id>/closedissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>closed issue activated</from-outcome>
+            <to-view-id>/closedissues.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+    <navigation-rule>
+
+        <from-view-id>/forgotpassword.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>password request sent</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+
+
+</faces-config>

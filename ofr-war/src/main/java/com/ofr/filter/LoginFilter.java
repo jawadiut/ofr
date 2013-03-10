@@ -18,7 +18,7 @@ import java.io.IOException;
  * To change this template use File | Settings | File Templates.
  */
 
-@WebFilter(filterName = "LoginFilter", servletNames = "Faces Servlet", urlPatterns = {"/*"})
+@WebFilter(filterName = "LoginFilter", servletNames = "Faces Servlet", urlPatterns = {"*.xhtml"})
 public class LoginFilter implements Filter {
 
     protected final Log log = LogFactory.getLog(getClass());
@@ -39,7 +39,7 @@ public class LoginFilter implements Filter {
 
         HttpSession session = request.getSession(false);
 
-        String requestedUri = request.getRequestURI().toString();
+        String requestedUri = request.getRequestURI();
 
         if (session == null || session.getAttribute("authenticatedUserId") == null) {
 

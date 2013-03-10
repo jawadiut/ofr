@@ -49,7 +49,7 @@ public class ForgotPasswordService {
         try {
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("ofr.imon@gmail.com"));
+            message.setFrom(new InternetAddress("from email"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse("to email"));
             message.setSubject("FundRaiser Password");

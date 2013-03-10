@@ -42,7 +42,7 @@ public class ForgotPasswordService {
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("ofr.imon@gmail.com", "therapofr123");
+                        return new PasswordAuthentication("from email", "password");
                     }
                 });
 
@@ -51,7 +51,7 @@ public class ForgotPasswordService {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("ofr.imon@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("imon.084407@gmail.com"));
+                    InternetAddress.parse("to email"));
             message.setSubject("FundRaiser Password");
             message.setText("Dear " + user.getUserName() + "," +
                     "\n\n your password :" + user.getPassword());

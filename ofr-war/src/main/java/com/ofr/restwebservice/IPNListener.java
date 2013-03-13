@@ -58,9 +58,8 @@ public class IPNListener {
         if ("VERIFIED".equals(validation)) {
 
 
-            Iterator entries = formParams.entrySet().iterator();
-            while (entries.hasNext()) {
-                Map.Entry thisEntry = (Map.Entry) entries.next();
+            for (Object o : formParams.entrySet()) {
+                Map.Entry thisEntry = (Map.Entry) o;
                 String key = (String) thisEntry.getKey();
                 List value = (List) thisEntry.getValue();
 

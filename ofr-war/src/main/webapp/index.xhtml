@@ -65,10 +65,10 @@
 
                 <p:outputLabel value="Search Issue "/>
                 <p:spacer width="10px"/>
-                <h:inputText id="search" size="55" value="#{indexController.searchKeyword}"/>
+                <h:inputText id="search" size="40" value="#{indexController.searchKeyword}"/>
                 <p:watermark for="search" value="Search with a keyword"/>
                 <p:spacer width="10px"/>
-                <p:commandButton update="dataList" value="Search" actionListener="#{indexController.searchIssue}"/>
+                <p:commandButton ajax="true" update="dataList" value="Search" actionListener="#{indexController.searchIssue}"/>
 
             </div>
             <p:separator/>
@@ -92,7 +92,7 @@
 
                                     <h:commandLink target="_blank" style="color: #6495ed;font-size: 24px"
                                                    value="#{issueList.title}"
-                                                   action="#{indexController.donate}"/>
+                                                   action="#{indexController.donate}" />
 
                             </div>
                             <p:spacer/>

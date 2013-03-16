@@ -13,7 +13,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
     <title>FundRaiser-Request Issue</title>
@@ -58,11 +58,30 @@
             </p:tabMenu>
         </h:form>
 
-        <!--<div>-->
-            <!--<p:dataTable>-->
+        <div>
+            <c:choose>
+                <c:when test="#{not empty myContributionController.user.donationList}">
+                    <p:dataTable var="donationList" value="#{myContributionController.user.donationList}">
+                        <p:column headerText="Issue Title">
+                            <h:outputText value="#{donationList.issueTitle}"/>
+                        </p:column>
 
-            <!--</p:dataTable>-->
-        <!--</div>-->
+                        <p:column headerText="Amount">
+                            <h:outputText value="#{donationList.amount}"/>
+                        </p:column>
+
+                        <p:column headerText="Date">
+                            <h:outputText value="#{donationList.donationDate}"/>
+                        </p:column>
+                    </p:dataTable>
+                </c:when>
+                <c:otherwise>
+                    <br/>
+                    <p:outputLabel value="No Records Found"></p:outputLabel>
+                </c:otherwise>
+            </c:choose>
+        </div>
+
     </p:layoutUnit>
 
 

@@ -1,10 +1,9 @@
 package com.ofr.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,17 +16,38 @@ import javax.validation.constraints.NotNull;
 public class Donation {
     @Id
     @GeneratedValue
-    private String donationId;
+    private int donationId;
 
     @NotNull
     @Min(value = 1)
     private int amount;
 
-    public String getDonationId() {
+    private String issueTitle;
+
+    @Temporal(TemporalType.DATE)
+    private Date donationDate;
+
+    public Date getDonationDate() {
+        return donationDate;
+    }
+
+    public void setDonationDate(Date donationDate) {
+        this.donationDate = donationDate;
+    }
+
+    public String getIssueTitle() {
+        return issueTitle;
+    }
+
+    public void setIssueTitle(String issueTitle) {
+        this.issueTitle = issueTitle;
+    }
+
+    public int getDonationId() {
         return donationId;
     }
 
-    public void setDonationId(String donationId) {
+    public void setDonationId(int donationId) {
         this.donationId = donationId;
     }
 

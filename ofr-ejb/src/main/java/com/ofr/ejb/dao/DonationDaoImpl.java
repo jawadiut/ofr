@@ -1,5 +1,7 @@
 package com.ofr.ejb.dao;
 
+import javax.ejb.Stateless;
+
 /**
  * Created with IntelliJ IDEA.
  * User: imon
@@ -7,5 +9,7 @@ package com.ofr.ejb.dao;
  * Time: 9:59 AM
  * To change this template use File | Settings | File Templates.
  */
-public class DonationDaoImpl {
+
+@Stateless
+public class DonationDaoImpl implements DonationDao {
 }

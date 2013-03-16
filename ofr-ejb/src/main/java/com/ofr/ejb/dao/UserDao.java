@@ -26,4 +26,6 @@ public interface UserDao {
 
     public User getUserFromEmail(User user);
 
+    public User getUserWithDonationList(int userId);
+
 }

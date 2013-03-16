@@ -37,7 +37,8 @@ CREATE TABLE Donation (
     amount              INT,
     userId              INT,
     issueId             INT,
-    title               VARCHAR(20),
+    issueTitle          VARCHAR(20),
+    donationDate	    DATE,
     PRIMARY KEY (donationId),
     FOREIGN KEY (userId) REFERENCES User(userId),
     FOREIGN KEY (issueId) REFERENCES Issue(issueId)

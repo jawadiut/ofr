@@ -71,4 +71,18 @@ public class UserDaoImpl implements UserDao {
                 .getSingleResult();
     }
 
+    @Override
+    public User getUserWithDonationList(int userId) {
+        User user;
+        try {
+            user = (User) em.createQuery("SELECT u FROM User u JOIN FETCH u.donationList WHERE u.userId=:userId ORDER BY u.userId DESC")
+                    .setParameter("userId", userId).getSingleResult();
+
+        } catch (NoResultException ex) {
+            user = em.find(User.class, userId);
+            user.getDonationList().size();
+        }
+        return user;
+    }
+
 }

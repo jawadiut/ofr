@@ -42,8 +42,6 @@ public class AuthenticationFilter implements Filter {
         if(session != null){
             if(session.getAttribute("authenticatedUserRole") != null){
 
-                System.out.println("sssssssssssssssssssssssssssssssssssssss");
-
                 if((requestedUri.contains("admin") || requestedUri.contains("index")) && session.getAttribute("authenticatedUserRole").equals("user")){
                     System.out.println("***********************************");
                     response.sendRedirect("/ofr/home");

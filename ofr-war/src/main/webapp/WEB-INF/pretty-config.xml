@@ -54,7 +54,7 @@
     </url-mapping>
 
     <url-mapping>
-        <pattern value="/donate"/>
+        <pattern value="/donate/#{user}/#{issue}"/>
         <view-id value="/donate.xhtml"/>
     </url-mapping>
 

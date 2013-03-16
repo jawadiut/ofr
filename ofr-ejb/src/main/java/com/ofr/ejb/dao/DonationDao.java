@@ -10,6 +10,6 @@ import javax.ejb.Local;
  * To change this template use File | Settings | File Templates.
  */
 @Local
-public class DonationDao {
+public interface DonationDao {
 
 }

@@ -77,12 +77,12 @@
 
                                     <div style="padding-left: 10px">
 
-                                        <h:commandLink target="_blank" style="color: #6495ed; font-size: 20px"
+                                        <h:link target="_blank" style="color: #6495ed; font-size: 20px"
                                                        value="#{issueList.title}"
-                                                       action="#{homeController.donate}">
+                                                       outcome="donate.xhtml">
                                             <f:param name="issue" value="#{issueList.issueId}"/>
                                             <f:param name="user" value="#{homeController.user.userId}"/>
-                                        </h:commandLink>
+                                        </h:link>
 
 
                                         <h:panelGrid columns="2">

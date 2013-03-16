@@ -14,6 +14,11 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
 
+<f:metadata>
+    <f:viewParam name="issue" value="#{donateController.issueId}"/>
+    <f:viewParam name="user" value="#{donateController.userId}" />
+</f:metadata>
+
 <h:head>
     <title>FundRaiser</title>
     <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
@@ -37,14 +42,14 @@
 
     <p:layoutUnit position="center">
 
-        <p:outputLabel value="#{donateController.issue.issueId}"/>
+        <p:outputLabel value="#{donateController.userId}"/>
 
         <form name="paypalForm" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
             <input type="hidden" name="cmd" value="_donations"/>
             <input type="hidden" name="business" value="imon.0_1361851049_biz@gmail.com"/>
             <input type="hidden" name="password" value="1361851070"/>
             <input type="hidden" name="custom" value="1123"/>
-            <input type="hidden" name="item_name" value="#{donateController.issue.issueId}"/>
+            <input type="hidden" name="item_name" value="#{donateController.issueId}"/>
             <input type="hidden" name="rm" value="1"/>
             <input type="hidden" name="return" value="http://localhost:8080/ofr/index"/>
             <input type="hidden" name="cancel_return"

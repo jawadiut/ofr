@@ -92,11 +92,11 @@
             <redirect/>
         </navigation-case>
 
-        <navigation-case>
-            <from-outcome>donate</from-outcome>
-            <to-view-id>/donate.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
+        <!--<navigation-case>-->
+            <!--<from-outcome>donate</from-outcome>-->
+            <!--<to-view-id>/donate.xhtml</to-view-id>-->
+            <!--<redirect/>-->
+        <!--</navigation-case>-->
 
     </navigation-rule>
 

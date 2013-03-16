@@ -1,4 +1,4 @@
-package com.ofr.annotation;
+package com.ofr.validator;
 
 import javax.validation.constraints.Pattern;
 import java.lang.annotation.ElementType;

@@ -23,15 +23,15 @@ public class DonateController {
 
     protected final Log log = LogFactory.getLog(getClass());
 
-    private Issue issue;
+    private int issueId;
     private int userId;
 
-    public Issue getIssue() {
-        return issue;
+    public int getIssueId() {
+        return issueId;
     }
 
-    public void setIssue(Issue issue) {
-        this.issue = issue;
+    public void setIssueId(int issueId) {
+        this.issueId = issueId;
     }
 
     public int getUserId() {
@@ -47,11 +47,7 @@ public class DonateController {
 
     @PostConstruct
     public void init() {
-//        Map<String, String> params =
-//                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-//        System.out.println("getting param "+params.get("issue"));
-//        issue = issueDao.getIssue(Integer.parseInt(params.get("issue")));
-//        userId = Integer.parseInt(params.get("user"));
+
     }
 
 

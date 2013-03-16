@@ -107,9 +107,9 @@ public class HomeController {
         return "my profile";
     }
 
-    public String donate() {
-        return "donate";
-    }
+//    public String donate() {
+//        return "donate";
+//    }
 
     public void searchIssue(){
         recentIssues = issueDao.searchActiveIssueByTitle(searchText);

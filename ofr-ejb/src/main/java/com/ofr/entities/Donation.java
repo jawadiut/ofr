@@ -23,5 +23,19 @@ public class Donation {
     @Min(value = 1)
     private int amount;
 
+    public String getDonationId() {
+        return donationId;
+    }
 
+    public void setDonationId(String donationId) {
+        this.donationId = donationId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

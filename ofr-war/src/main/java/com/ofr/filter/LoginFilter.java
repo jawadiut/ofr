@@ -50,10 +50,13 @@ public class LoginFilter implements Filter {
             if (!requestedUri.contains("index")) {
                 System.out.println("in login in if");
                 response.sendRedirect("/ofr/index");
+                return;
             }
         } else {
             if(requestedUri.equals("/ofr/")){
+                System.out.println("////////////////////////");
                 response.sendRedirect("/ofr/index");
+                return;
             }
         }
 

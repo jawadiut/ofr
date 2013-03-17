@@ -1,5 +1,7 @@
 package com.ofr.entities;
 
+import com.ofr.validator.Email;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,7 +24,7 @@ public class User implements Serializable {
     @NotNull
     private String userName;
     @NotNull
-    //@Email
+    @Email
     private String email;
     @NotNull
     //@Size(min = 6)

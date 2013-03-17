@@ -15,14 +15,14 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
 <f:metadata>
-    <f:viewParam name="issue" value="#{donateController.issueId}"/>
-    <f:viewParam name="user" value="#{donateController.userId}" />
+    <f:viewParam name="user" value="#{donateController.userId}"/>
 </f:metadata>
 
 <h:head>
     <title>FundRaiser</title>
     <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
 </h:head>
+
 
 <body class="main-container">
 
@@ -42,21 +42,85 @@
 
     <p:layoutUnit position="center">
 
-        <p:outputLabel value="#{donateController.userId}"/>
 
-        <form name="paypalForm" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_donations"/>
-            <input type="hidden" name="business" value="imon.0_1361851049_biz@gmail.com"/>
-            <input type="hidden" name="password" value="1361851070"/>
-            <input type="hidden" name="custom" value="1123"/>
-            <input type="hidden" name="item_name" value="#{donateController.issueId}"/>
-            <input type="hidden" name="rm" value="1"/>
-            <input type="hidden" name="return" value="http://localhost:8080/ofr/index"/>
-            <input type="hidden" name="cancel_return"
-                   value="http://localhost:8080/ofr/index"/>
-            <input type="hidden" name="cert_id" value="AArQuWGL3VtwTOmNdT4hOkE8qNH2A-mFCwxXwECXMefX29nItEsIyyw3"/>
-            <input type="submit"/>
-        </form>
+        <div style="padding-left: 100px; padding-right: 100px;padding-top: 10px; font-size: 16px">
+            <p:panel>
+                <f:facet name="header">
+                    Issue
+                </f:facet>
+
+                <h:panelGrid columns="2">
+
+                    <p:outputLabel value="Issue Title : "/>
+                    <p:outputLabel value="#{donateController.issue.title}"/>
+
+                    <p:spacer/>
+                    <p:spacer/>
+
+                    <p:outputLabel value="Help For : "/>
+                    <p:outputLabel value="#{donateController.issue.helpFor}"/>
+
+                    <p:spacer/>
+                    <p:spacer/>
+
+                    <p:outputLabel value="Description : "/>
+                    <p:outputLabel value="#{donateController.issue.description}"/>
+
+                    <p:spacer/>
+                    <p:spacer/>
+
+                    <p:outputLabel value="Required Amount : "/>
+                    <p:outputLabel value="#{donateController.issue.requiredAmount}"/>
+
+                    <p:spacer/>
+                    <p:spacer/>
+
+                    <p:outputLabel value="Collected Amount : "/>
+                    <p:outputLabel value="#{donateController.issue.collectedAmount}"/>
+
+                </h:panelGrid>
+            </p:panel>
+
+            <br/>
+
+            <p:panel>
+                <f:facet name="header">
+                    Donate
+                </f:facet>
+
+                <form name="paypalForm" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                    Amount : <input name="amount"/>
+
+                    <input type="hidden" name="cmd" value="_donations"/>
+                    <input type="hidden" name="business" value="imon.0_1361851049_biz@gmail.com"/>
+                    <input type="hidden" name="password" value="1361851070"/>
+                    <input type="hidden" name="custom" value="1123"/>
+                    <input type="hidden" name="item_name" value="#{donateController.issue.issueId}"/>
+                    <input type="hidden" name="custom" value="#{donateController.userId}"/>
+                    <input type="hidden" name="rm" value="1"/>
+                    <!--<input type="hidden" name="return" value="http://localhost:8080/ofr/index"/>-->
+                    <!--<input type="hidden" name="cancel_return"-->
+                           <!--value="http://localhost:8080/ofr/index"/>-->
+                    <input type="hidden" name="cert_id"
+                           value="AArQuWGL3VtwTOmNdT4hOkE8qNH2A-mFCwxXwECXMefX29nItEsIyyw3"/>
+
+                    <br/>
+
+                    <input type="image" name="submit"
+                           src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+                           alt="PayPal - The safer, easier way to pay online"/>
+                    <img alt="" border="0" width="1" height="1"
+                         src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" />
+
+
+
+                </form>
+
+            </p:panel>
+
+
+        </div>
+
     </p:layoutUnit>
 
 

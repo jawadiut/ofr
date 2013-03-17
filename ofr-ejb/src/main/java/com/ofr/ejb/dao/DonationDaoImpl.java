@@ -1,6 +1,12 @@
 package com.ofr.ejb.dao;
 
+import com.ofr.entities.Donation;
+import com.ofr.entities.Issue;
+
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.Calendar;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,4 +18,15 @@ import javax.ejb.Stateless;
 
 @Stateless
 public class DonationDaoImpl implements DonationDao {
+
+    @PersistenceContext
+    EntityManager em;
+
+    @Override
+    public void saveDonation(Donation donation) {
+        Issue issue = em.find(Issue.class, donation.getIssueId());
+        donation.setIssueTitle(issue.getTitle());
+        donation.setDonationDate(Calendar.getInstance().getTime());
+        em.persist(donation);
+    }
 }

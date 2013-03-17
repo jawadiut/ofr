@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -23,6 +24,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
+import com.ofr.ejb.dao.DonationDao;
+import com.ofr.entities.Donation;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -32,6 +35,11 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 @Path("/ipn")
 public class IPNListener {
     private static Logger log = Logger.getLogger(IPNListener.class.toString());
+
+    Donation donation;
+
+    @EJB
+    DonationDao donationDao;
 
     @Context
     private UriInfo context;
@@ -57,8 +65,13 @@ public class IPNListener {
         System.out.println(String.format("IPN: Validation='%s'", validation));
         if ("VERIFIED".equals(validation)) {
 
+            donation.setAmount((Integer) formParams.get("amount"));
+            donation.setIssueId((Integer) formParams.get("item_name"));
+            donation.setUserId((Integer) formParams.get("custom"));
 
-            for (Object o : formParams.entrySet()) {
+            donationDao.saveDonation(donation);
+
+            /* for (Object o : formParams.entrySet()) {
                 Map.Entry thisEntry = (Map.Entry) o;
                 String key = (String) thisEntry.getKey();
                 List value = (List) thisEntry.getValue();
@@ -67,7 +80,7 @@ public class IPNListener {
                     System.out.println(String.format("IPN: Key='%s', Value='%s'", key, value.get(0)));
                     // TODO: Persist the IPN details
                 }
-            }
+            }   */
             // TODO: Alert handler of received IPN
         }
         return Response.status(Status.OK).entity(validation).build();

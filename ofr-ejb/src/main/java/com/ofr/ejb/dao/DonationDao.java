@@ -1,5 +1,7 @@
 package com.ofr.ejb.dao;
 
+import com.ofr.entities.Donation;
+
 import javax.ejb.Local;
 
 /**
@@ -12,4 +14,5 @@ import javax.ejb.Local;
 @Local
 public interface DonationDao {
 
+    public void saveDonation(Donation donation);
 }

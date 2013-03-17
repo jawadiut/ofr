@@ -8,7 +8,9 @@ import org.apache.commons.logging.LogFactory;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,21 +19,23 @@ import javax.inject.Named;
  * Time: 11:16 AM
  * To change this template use File | Settings | File Templates.
  */
+
 @Named
 @RequestScoped
 public class DonateController {
 
     protected final Log log = LogFactory.getLog(getClass());
 
-    private int issueId;
     private int userId;
 
-    public int getIssueId() {
-        return issueId;
+    private Issue issue;
+
+    public Issue getIssue() {
+        return issue;
     }
 
-    public void setIssueId(int issueId) {
-        this.issueId = issueId;
+    public void setIssue(Issue issue) {
+        this.issue = issue;
     }
 
     public int getUserId() {
@@ -47,7 +51,12 @@ public class DonateController {
 
     @PostConstruct
     public void init() {
+        Map<String, String> params =
+                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 
+        int issueId = Integer.parseInt(params.get("issue"));
+
+        issue = issueDao.getIssue(issueId);
     }
 
 

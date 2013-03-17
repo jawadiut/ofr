@@ -24,8 +24,29 @@ public class Donation {
 
     private String issueTitle;
 
+    private int userId;
+
+    private int issueId;
+
+
     @Temporal(TemporalType.DATE)
     private Date donationDate;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getIssueId() {
+        return issueId;
+    }
+
+    public void setIssueId(int issueId) {
+        this.issueId = issueId;
+    }
 
     public Date getDonationDate() {
         return donationDate;

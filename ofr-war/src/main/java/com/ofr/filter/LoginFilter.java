@@ -47,7 +47,7 @@ public class LoginFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         } else if (session == null || session.getAttribute("authenticatedUserId") == null) {
             System.out.println("in login filter in else if");
-            if (!requestedUri.contains("index")) {
+            if (!requestedUri.contains("index") && !requestedUri.contains("forgotpassword")) {
                 System.out.println("in login in if");
                 response.sendRedirect("/ofr/index");
                 return;

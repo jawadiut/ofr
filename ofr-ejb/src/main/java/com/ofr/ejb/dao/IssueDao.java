@@ -15,6 +15,8 @@ import java.util.List;
 @Local
 public interface IssueDao {
 
+    public void updateIssue(Issue issue);
+
     public List<Issue> getRecentIssue();
 
     public void saveIssue(int userId, Issue issue);

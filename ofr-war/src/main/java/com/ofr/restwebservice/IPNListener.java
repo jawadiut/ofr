@@ -51,7 +51,8 @@ public class IPNListener {
     }
 
     /**
-     * POST method for updating or creating an instance of IPNListener * @param content representation for the resource * @return an HTTP response with content of the updated or created resource.
+     * POST method for updating or creating an instance of IPNListener * @param content representation for the resource
+     * * @return an HTTP response with content of the updated or created resource.
      */
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -60,7 +61,8 @@ public class IPNListener {
         Client client = Client.create(config);
         WebResource service = client.resource("https://www.sandbox.paypal.com/cgi-bin/webscr");
         formParams.add("cmd", "_notify-validate");
-        ClientResponse response = service.type(MediaType.APPLICATION_FORM_URLENCODED_TYPE).post(ClientResponse.class, formParams);
+        ClientResponse response = service.type(MediaType.APPLICATION_FORM_URLENCODED_TYPE).post(ClientResponse.class,
+                formParams);
         String validation = response.getEntity(String.class);
         System.out.println(String.format("IPN: Validation='%s'", validation));
         if ("VERIFIED".equals(validation)) {

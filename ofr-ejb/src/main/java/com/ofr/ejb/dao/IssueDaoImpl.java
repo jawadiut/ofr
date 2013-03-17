@@ -25,6 +25,12 @@ public class IssueDaoImpl implements IssueDao {
     @PersistenceContext
     EntityManager em;
 
+
+    @Override
+    public void updateIssue(Issue issue) {
+        em.merge(issue);
+    }
+
     @Override
     public List<Issue> getRecentIssue() {
         return (List<Issue>) em.createQuery(

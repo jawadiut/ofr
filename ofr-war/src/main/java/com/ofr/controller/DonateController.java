@@ -1,6 +1,8 @@
 package com.ofr.controller;
 
+import com.ofr.ejb.dao.DonationDao;
 import com.ofr.ejb.dao.IssueDao;
+import com.ofr.entities.Donation;
 import com.ofr.entities.Issue;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -59,5 +61,18 @@ public class DonateController {
         issue = issueDao.getIssue(issueId);
     }
 
+/*
+    @EJB
+    DonationDao donationDao;
+
+    public void testDonationService(){
+        Donation donation = new Donation();
+        donation.setAmount(10000);
+        donation.setIssueId(12);
+        donation.setUserId(10);
+
+        donationDao.saveDonation(donation);
+    }
+*/
 
 }

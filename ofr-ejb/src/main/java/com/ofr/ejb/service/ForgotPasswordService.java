@@ -6,6 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.Properties;
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -27,31 +28,34 @@ public class ForgotPasswordService {
 
     protected final Log log = LogFactory.getLog(getClass());
 
+    @Resource(name = "mail/ofr")
+    private Session mailSession;
+
     public void sendMail(User user) {
 
         System.out.println("*****************************");
 
-        Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class",
-                "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
-
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("from email", "password");
-                    }
-                });
+//        Properties props = new Properties();
+//        props.put("mail.smtp.host", "smtp.gmail.com");
+//        props.put("mail.smtp.socketFactory.port", "465");
+//        props.put("mail.smtp.socketFactory.class",
+//                "javax.net.ssl.SSLSocketFactory");
+//        props.put("mail.smtp.auth", "true");
+//        props.put("mail.smtp.port", "465");
+//
+//        Session session = Session.getInstance(props,
+//                new javax.mail.Authenticator() {
+//                    protected PasswordAuthentication getPasswordAuthentication() {
+//                        return new PasswordAuthentication("from email", "password");
+//                    }
+//                });
 
         try {
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("from email"));
+            Message message = new MimeMessage(mailSession);
+            //message.setFrom(new InternetAddress("from email"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("to email"));
+                    InternetAddress.parse(user.getEmail()));
             message.setSubject("FundRaiser Password");
             message.setText("Dear " + user.getUserName() + "," +
                     "\n\n your password :" + user.getPassword());
